@@ -1,0 +1,5 @@
+image_version   = "2023.1024.01"
+image_name      = "cglabs-hostpool01" 
+gallery_name    = "cglabsavdeusacg"
+acgResGroup     = "cglabs-avd-eus-sharedsvcs"
+subscription_id = "197f4130-ef26-4439-a354-eb5a2a2d7f85"
