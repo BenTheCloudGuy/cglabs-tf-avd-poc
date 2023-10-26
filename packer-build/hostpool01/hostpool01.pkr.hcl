@@ -48,7 +48,7 @@ source "azure-arm" "createImage" {
   communicator                      = "winrm"
   image_offer                       = "Windows-11"
   image_publisher                   = "MicrosoftWindowsDesktop"
-  image_sku                         = "win11-22h2-ent"
+  image_sku                         = "win11-22h2-avd"
   location                          = "EastUS"
   managed_image_name                = "${var.image_name}"
   managed_image_resource_group_name = "${var.acgResGroup}"
