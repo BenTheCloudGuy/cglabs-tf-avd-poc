@@ -39,17 +39,14 @@ variable "subscription_id" {
 // The Fun Bits 
 // https://developer.hashicorp.com/packer/integrations/hashicorp/azure/latest/components/builder/arm
 source "azure-arm" "createImage" {
-  azure_tags = {
-    notes    = "Windows 11 BaseImage for HostPool01."
-    owner    = "BenTheBuilder"
-  }
+  azure_tags = "${var.azure_tags}"
   client_id                         = "${var.client_id}"
   client_secret                     = "${var.client_secret}"
   communicator                      = "winrm"
-  image_offer                       = "Windows-11"
-  image_publisher                   = "MicrosoftWindowsDesktop"
-  image_sku                         = "win11-22h2-avd"
-  location                          = "EastUS"
+  image_offer                       = "${var.image_offer}"
+  image_publisher                   = "${var.image_publisher}"
+  image_sku                         = "${var.image_sku}"
+  location                          = "${var.location}"
   managed_image_name                = "${var.image_name}"
   managed_image_resource_group_name = "${var.acgResGroup}"
   os_type                           = "Windows"
@@ -57,12 +54,12 @@ source "azure-arm" "createImage" {
     gallery_name        = "${var.gallery_name}"
     image_name          = "${var.image_name}"
     image_version       = "${var.image_version}"
-    replication_regions = ["EastUS"]
+    replication_regions = "${var.replication_regions}"
     resource_group      = "${var.acgResGroup}"
   }
   subscription_id = "${var.subscription_id}"
   tenant_id       = "${var.tenant_id}"
-  vm_size         = "Standard_D4s_v5"
+  vm_size         = "${var.vm_size}"
   winrm_insecure  = true
   winrm_timeout   = "3m"
   winrm_use_ssl   = true
